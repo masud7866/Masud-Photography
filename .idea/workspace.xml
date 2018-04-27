@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3ac46ae-40bb-4b87-b69f-c2b425174b13" name="Default" comment="">
+    <list default="true" id="b3ac46ae-40bb-4b87-b69f-c2b425174b13" name="Default" comment="Update">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/css/bootstrap-table.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/css/bootstrap.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/css/datepicker3.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/css/font-awesome.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/css/styles.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/dashboard.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/fontawesome-webfont3e6e.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/fontawesome-webfont3e6e.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/fontawesome-webfont3e6e.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/fontawesome-webfont3e6e.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/fontawesome-webfont3e6e.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/fontawesome-webfontd41d.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/glyphicons-halflings-regular.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/glyphicons-halflings-regular.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/glyphicons-halflings-regular.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/glyphicons-halflings-regular.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/glyphicons-halflings-regular.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/fonts/glyphicons-halflings-regulard41d.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/gallery.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/images/profile-pic-1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/images/profile-pic-2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/index.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/bootstrap-datepicker.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/bootstrap-table.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/bootstrap.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/chart-data.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/chart.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/custom.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/easypiechart-data.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/easypiechart.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/js/jquery-1.11.1.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/admin/tables.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,11 +88,6 @@
               <item name="Masud-Photography" type="b2602c69:ProjectViewProjectNode" />
               <item name="Masud-Photography" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="Masud-Photography" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Masud-Photography" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -99,18 +127,27 @@
       <workItem from="1524845204106" duration="251000" />
       <workItem from="1524845458901" duration="49000" />
       <workItem from="1524845660405" duration="1084000" />
-      <workItem from="1524849177843" duration="11000" />
+      <workItem from="1524849177843" duration="154000" />
     </task>
+    <task id="LOCAL-00001" summary="Update">
+      <created>1524849209186</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1524849209203</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1395000" />
+    <option name="totallyTimeSpent" value="1538000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -134,6 +171,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
