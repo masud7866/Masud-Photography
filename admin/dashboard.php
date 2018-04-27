@@ -6,7 +6,7 @@
 <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Lumino - Dashboard</title>
+		<title>Admin - Dashboard</title>
 
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span></button>
-					<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+					<a class="navbar-brand" href="#"><span>Admin</span>Panel</a>
 				</div>
 			</div><!-- /.container-fluid -->
 		</nav>
@@ -136,6 +136,7 @@
 							</div>
 						</div>
 					</div>
+
 				</div><!--/.row-->
 			</div>
 		</div>	<!--/.main-->
