@@ -69,10 +69,10 @@
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <div class="profile-sidebar">
         <div class="profile-userpic">
-            <img src="images/profile-pic-1.jpg" width="50" class="img-responsive" alt="">
+            <img src="images/profile-pic.jpg" width="50" class="img-responsive" alt="">
         </div>
         <div class="profile-usertitle">
-            <div class="profile-usertitle-name">Username</div>
+            <div class="profile-usertitle-name">Masud</div>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
         </div>
         <div class="clear"></div>
