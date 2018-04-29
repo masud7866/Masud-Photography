@@ -131,10 +131,10 @@
 							<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 								<thead>
 									<tr>
-										<th data-field="state" data-checkbox="true" >Item ID</th>
-										<th data-field="id" data-sortable="true">Item ID</th>
-										<th data-field="name"  data-sortable="true">Item Name</th>
-										<th data-field="price" data-sortable="true">Item Price</th>
+										<th data-field="state" data-checkbox="true" >Album ID</th>
+                                        <th data-field="albumTitle" data-sortable="true">Album Name</th>
+										<th data-field="genre" data-sortable="true">Genre</th>
+										<th data-field="photoCountByAlbum"  data-sortable="true">Number of Photos</th>
 									</tr>
 								</thead>
 							</table>

@@ -142,10 +142,11 @@
                     <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th data-field="state" data-checkbox="true" >Item ID</th>
-                            <th data-field="id" data-sortable="true">Item ID</th>
-                            <th data-field="name"  data-sortable="true">Item Name</th>
-                            <th data-field="price" data-sortable="true">Item Price</th>
+                            <th data-field="state" data-checkbox="true" >Photographer ID</th>
+                            <th data-field="photographerName" data-sortable="true">Photographer Name</th>
+                            <th data-field="gender" data-sortable="true">Gender</th>
+                            <th data-field="age"  data-sortable="true">Age</th>
+                            <th data-field="photoCountByPhotographer" data-sortable="true">Number of Photos</th>
                         </tr>
                         </thead>
                     </table>

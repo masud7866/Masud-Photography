@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <!-- Mirrored from medialoot.com/preview/lumino-premium/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Apr 2018 16:51:16 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -115,6 +115,22 @@
                             </label>
                         </div>
                         <div class="form-group">
+                            <label class="control-label"> Select Photographer </label>
+                            <div class="form-group">
+                                <select name="photographerName">
+                                    <option value="id">Names</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"> Select Album </label>
+                            <div class="form-group">
+                                <select name="albumName">
+                                    <option value="id">Names</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <textarea class="form-control" name="caption" placeholder="Say something about this photo..."></textarea>
                         </div>
                         <div class="form-group">
@@ -134,10 +150,12 @@
                     <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th data-field="state" data-checkbox="true" >Item ID</th>
-                            <th data-field="id" data-sortable="true">Item ID</th>
-                            <th data-field="name"  data-sortable="true">Item Name</th>
-                            <th data-field="price" data-sortable="true">Item Price</th>
+                            <th data-field="state" data-checkbox="true" >Photo ID</th>
+                            <th data-field="photoTitle" data-sortable="true">File Name</th>
+                            <th data-field="photoCaption"  data-sortable="true">Caption</th>
+                            <th data-field="cameraName" data-sortable="true">Camera Model</th>
+                            <th data-field="date" data-sortable="true">Date of Capture</th>
+                            <th data-field="location" data-sortable="true">Location</th>
                         </tr>
                         </thead>
                     </table>
