@@ -64,7 +64,7 @@ if (isset($_POST['photographerName'])&&isset($_POST['photographerDoB'])&&isset($
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#">
-                    <em class="fa fa-home"></em>
+                    <em class="fa fa-camera"></em>
                 </a></li>
             <li class="active">Photographers</li>
         </ol>
@@ -132,13 +132,27 @@ if (isset($_POST['photographerName'])&&isset($_POST['photographerDoB'])&&isset($
                     <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th data-field="state" data-checkbox="true" >Photographer ID</th>
                             <th data-field="photographerName" data-sortable="true">Photographer Name</th>
                             <th data-field="gender" data-sortable="true">Gender</th>
                             <th data-field="age"  data-sortable="true">Age</th>
                             <th data-field="photoCountByPhotographer" data-sortable="true">Number of Photos</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        <?php
+                        if(get_all_photographers()!=null) {
+                            foreach (get_all_photographers() as $row ){
+                                ?>
+                                <tr>
+                                    <td><?php echo $row['1']?></td>
+                                    <td><?php if ($row['3']==1){echo "Male";}else{echo "Female";}?></td>
+                                    <td><?php echo date_diff(date_create($row['2']),date_create(date("Y-m-d")))->format("%y");?></td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                        </tbody>
                     </table>
                 </div>
             </div>

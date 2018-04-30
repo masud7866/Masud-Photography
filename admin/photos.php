@@ -62,7 +62,7 @@ if (!isCookieSet()){
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#">
-                    <em class="fa fa-home"></em>
+                    <em class="fa fa-photo"></em>
                 </a></li>
             <li class="active">Photos</li>
         </ol>

@@ -76,7 +76,7 @@ function get_all_albums(){
     return false;
 }
 
-function get_all_photographer(){
+function get_all_photographers(){
     // Create connection
     $conn = new mysqli(config["DB_HOSTNAME"], config["DB_USERNAME"], config["DB_PASS"], config["DB_NAME"]);
 
@@ -92,4 +92,30 @@ function get_all_photographer(){
     }
     $conn->close();
     return false;
+}
+function count_photographers(){
+    // Create connection
+    $conn = new mysqli(config["DB_HOSTNAME"], config["DB_USERNAME"], config["DB_PASS"], config["DB_NAME"]);
+
+    // Check connection
+    if ($conn->connect_error) {
+        return false;
+    }
+    $sql = "SELECT COUNT(id) FROM photographer";
+    $result = $conn->query($sql);
+    $conn->close();
+    return $result->fetch_all();
+}
+function count_albums(){
+    // Create connection
+    $conn = new mysqli(config["DB_HOSTNAME"], config["DB_USERNAME"], config["DB_PASS"], config["DB_NAME"]);
+
+    // Check connection
+    if ($conn->connect_error) {
+        return false;
+    }
+    $sql = "SELECT COUNT(id) FROM album";
+    $result = $conn->query($sql);
+    $conn->close();
+    return $result->fetch_all();
 }

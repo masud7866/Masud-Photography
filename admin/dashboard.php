@@ -62,7 +62,7 @@ if (!isCookieSet()){
 			<div class="row">
 				<ol class="breadcrumb">
 					<li><a href="#">
-						<em class="fa fa-home"></em>
+						<em class="fa fa-dashboard"></em>
 					</a></li>
 					<li class="active">Dashboard</li>
 				</ol>
@@ -87,7 +87,7 @@ if (!isCookieSet()){
 					<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 						<div class="panel panel-blue panel-widget border-right">
 							<div class="row no-padding"><em class="fa fa-xl fa-book color-orange"></em>
-								<div class="large">52</div>
+								<div class="large"><?php foreach (count_albums() as $row){echo $row[0];} ?></div>
 								<div class="text-muted">Albums</div>
 							</div>
 						</div>
@@ -95,7 +95,7 @@ if (!isCookieSet()){
 					<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 						<div class="panel panel-orange panel-widget border-right">
 							<div class="row no-padding"><em class="fa fa-xl fa-camera color-teal"></em>
-								<div class="large">24</div>
+								<div class="large"><?php foreach (count_photographers() as $row){echo $row[0];} ?></div>
 								<div class="text-muted">Photographers</div>
 							</div>
 						</div>

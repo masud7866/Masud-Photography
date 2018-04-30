@@ -65,7 +65,7 @@ if (isset($_POST['albumName'])&&isset($_POST['albumGenre'])){
 			<div class="row">
 				<ol class="breadcrumb">
 					<li><a href="#">
-						<em class="fa fa-home"></em>
+						<em class="fa fa-book"></em>
 					</a></li>
 					<li class="active">Albums</li>
 				</ol>
@@ -120,12 +120,25 @@ if (isset($_POST['albumName'])&&isset($_POST['albumGenre'])){
 							<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 								<thead>
 									<tr>
-										<th data-field="state" data-checkbox="true" >Album ID</th>
                                         <th data-field="albumTitle" data-sortable="true">Album Name</th>
 										<th data-field="genre" data-sortable="true">Genre</th>
 										<th data-field="photoCountByAlbum"  data-sortable="true">Number of Photos</th>
 									</tr>
 								</thead>
+                                <tbody>
+                                <?php
+                                if(get_all_albums()!=null) {
+                                    foreach (get_all_albums() as $row ){
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $row['1']?></td>
+                                            <td><?php echo $row['2']?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                                </tbody>
 							</table>
 						</div>
 					</div>
