@@ -1,3 +1,18 @@
+<?php
+include "functions.php";
+if (isCookieSet()){
+    header("location: dashboard.php");
+}
+if (isset($_POST['username'])&&isset($_POST['password']))
+{
+    if (login($_POST['username'],$_POST['password'])){
+        header("location: dashboard.php");
+    }
+    else{
+        $error = "Incorrect username or password!";
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 	
@@ -9,40 +24,6 @@
 		<title>Login</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
-		
-		<!--Theme Switcher-->
-		<style id="hide-theme">
-			body{
-				display:none;
-			}
-		</style>
-		<script type="text/javascript">
-			function setTheme(name){
-				var theme = document.getElementById('theme-css');
-				var style = 'css/theme-' + name + '.css';
-				if(theme){
-					theme.setAttribute('href', style);
-				} else {
-					var head = document.getElementsByTagName('head')[0];
-					theme = document.createElement("link");
-					theme.setAttribute('rel', 'stylesheet');
-					theme.setAttribute('href', style);
-					theme.setAttribute('id', 'theme-css');
-					head.appendChild(theme);
-				}
-				window.localStorage.setItem('lumino-theme', name);
-			}
-			var selectedTheme = window.localStorage.getItem('lumino-theme');
-			if(selectedTheme) {
-				setTheme(selectedTheme);
-			}
-			window.setTimeout(function(){
-					var el = document.getElementById('hide-theme');
-					el.parentNode.removeChild(el);
-				}, 5);
-		</script>
-		<!-- End Theme Switcher -->
-
 		<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
@@ -54,22 +35,25 @@
 				<div class="login-panel panel panel-default">
 					<div class="panel-heading">Log in</div>
 					<div class="panel-body">
-						<form role="form">
+						<form role="form" action="" method="post">
 							<fieldset>
 								<div class="form-group">
-									<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+									<input class="form-control" placeholder="Username" name="username" type="text" autofocus="">
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Password" name="password" type="password" value="">
 								</div>
-								<div class="checkbox">
-									<label>
-										<input name="remember" type="checkbox" value="Remember Me">Remember Me
-									</label>
-								</div>
 								<div class="text-center">
-									<a href="index.html" class="btn btn-lg btn-primary">Login</a></fieldset>
+									<button type="submit" class="btn btn-lg btn-primary">Login</button>
 								</div>
+                                <div class="text-danger">
+                                <?php
+                                if (isset($error)){
+                                    echo $error;
+                                }
+                                ?>
+                                </div>
+							</fieldset>
 						</form>
 					</div>
 				</div>

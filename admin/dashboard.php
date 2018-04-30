@@ -1,3 +1,9 @@
+<?php
+include "functions.php";
+if (!isCookieSet()){
+    header("location: index.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 	
@@ -12,41 +18,6 @@
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/datepicker3.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
-
-		<!--Theme Switcher-->
-		<style id="hide-theme">
-			body{
-				display:none;
-			}
-		</style>
-		<script type="text/javascript">
-			function setTheme(name){
-				var theme = document.getElementById('theme-css');
-				var style = 'css/theme-' + name + '.css';
-				if(theme){
-					theme.setAttribute('href', style);
-				} else {
-					var head = document.getElementsByTagName('head')[0];
-					theme = document.createElement("link");
-					theme.setAttribute('rel', 'stylesheet');
-					theme.setAttribute('href', style);
-					theme.setAttribute('id', 'theme-css');
-					head.appendChild(theme);
-				}
-				window.localStorage.setItem('lumino-theme', name);
-			}
-			var selectedTheme = window.localStorage.getItem('lumino-theme');
-			if(selectedTheme) {
-				setTheme(selectedTheme);
-			}
-			window.setTimeout(function(){
-					var el = document.getElementById('hide-theme');
-					el.parentNode.removeChild(el);
-				}, 5);
-		</script>
-		<!-- End Theme Switcher -->
-
-
 		<!--Custom Font-->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 		<!--[if lt IE 9]>
@@ -73,7 +44,8 @@
 				</div>
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">Masud</div>
-					<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+					<div class="profile-usertitle-status" style="margin-bottom: 3px"><span class="indicator label-success"></span>Online</div>
+                    <div class="profile-usertitle-status"><a href="logout.php"><span class="fa fa-sign-out"></span>Logout</a></div>
 				</div>
 				<div class="clear"></div>
 			</div>

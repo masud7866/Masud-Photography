@@ -1,3 +1,12 @@
+<?php
+include "functions.php";
+if (!isCookieSet()){
+    header("location: index.php");
+}
+if (isset($_POST['photographerName'])&&isset($_POST['photographerDoB'])&&isset($_POST['photographerGender'])){
+    $result = add_photographer($_POST['photographerName'],$_POST['photographerDoB'],$_POST['photographerGender']);
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,41 +21,6 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/datepicker3.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
-    <!--Theme Switcher-->
-    <style id="hide-theme">
-        body{
-            display:none;
-        }
-    </style>
-    <script type="text/javascript">
-        function setTheme(name){
-            var theme = document.getElementById('theme-css');
-            var style = 'css/theme-' + name + '.css';
-            if(theme){
-                theme.setAttribute('href', style);
-            } else {
-                var head = document.getElementsByTagName('head')[0];
-                theme = document.createElement("link");
-                theme.setAttribute('rel', 'stylesheet');
-                theme.setAttribute('href', style);
-                theme.setAttribute('id', 'theme-css');
-                head.appendChild(theme);
-            }
-            window.localStorage.setItem('lumino-theme', name);
-        }
-        var selectedTheme = window.localStorage.getItem('lumino-theme');
-        if(selectedTheme) {
-            setTheme(selectedTheme);
-        }
-        window.setTimeout(function(){
-            var el = document.getElementById('hide-theme');
-            el.parentNode.removeChild(el);
-        }, 5);
-    </script>
-    <!-- End Theme Switcher -->
-
-
     <!--Custom Font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -73,7 +47,8 @@
         </div>
         <div class="profile-usertitle">
             <div class="profile-usertitle-name">Masud</div>
-            <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+            <div class="profile-usertitle-status" style="margin-bottom: 3px"><span class="indicator label-success"></span>Online</div>
+            <div class="profile-usertitle-status"><a href="logout.php"><span class="fa fa-sign-out"></span>Logout</a></div>
         </div>
         <div class="clear"></div>
     </div>
@@ -119,16 +94,31 @@
                             <label class="control-label">Gender</label>
                             <div class="form-group">
                                 <label class="radio-inline">
-                                    <input type="radio" name="photographerGender" value="male">Male
+                                    <input type="radio" name="photographerGender" value="1">Male
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="photographerGender" value="female">Female
+                                    <input type="radio" name="photographerGender" value="0">Female
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-default">Add Photographer</button>
                         </div>
+                    </form>
+                    <?php
+                    if (isset($result)) {
+                        if ($result == true) {
+
+                            ?>
+                            <div class="text-success"> Photographer added successfully!</div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="text-danger"> Add photographer failed!</div>
+                            <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
