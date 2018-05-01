@@ -3,6 +3,13 @@ include "functions.php";
 if (!isCookieSet()){
     header("location: index.php");
 }
+if (isset($_POST['photographerName'])&& isset($_POST['albumName'])){
+    $result = add_photo($_FILES['photoFile'],$_POST['photographerName'],$_POST['albumName'],$_POST['location'],$_POST['caption']);
+}
+if (isset($_GET['delete'])){
+    $dResult = delete_photo($_GET['delete']);
+    header('location: photos.php');
+}
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
@@ -79,28 +86,61 @@ if (!isCookieSet()){
             <div class="panel panel-default">
                 <div class="panel-heading">Add new photo</div>
                 <div class="panel-body">
-                    <form action="" method="post">
+                    <?php
+                    if (isset($result)) {
+                        if ($result == true) {
+
+                            ?>
+                            <div class="text-success"> Photo added successfully!</div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="text-danger"> Add photo failed!</div>
+                            <?php
+                        }
+                    }
+                    ?>
+                    <form action="" method="post" enctype="multipart/form-data">
                         <p>Upload new photo:</p>
                         <div class="form-group">
                             <label class="btn btn-default">
-                                <input type="file" hidden>
+                                <input type="file" name="photoFile" hidden>
                             </label>
                         </div>
                         <div class="form-group">
                             <label class="control-label"> Select Photographer </label>
                             <div class="form-group">
-                                <select name="photographerName">
-                                    <option value="id">Names</option>
+                                <select class="form-control" name="photographerName">
+                                    <?php
+                                    if(get_all_photographers()!=null) {
+                                        foreach (get_all_photographers() as $row) {
+                                            ?>
+                                            <option value="<?php echo $row['0'] ?>"><?php echo $row['1'] ?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label"> Select Album </label>
                             <div class="form-group">
-                                <select name="albumName">
-                                    <option value="id">Names</option>
+                                <select class="form-control" name="albumName">
+                                    <?php
+                                    if(get_all_albums()!=null) {
+                                        foreach (get_all_albums() as $row) {
+                                            ?>
+                                            <option value="<?php echo $row['0'] ?>"><?php echo $row['1'] ?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
                                 </select>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="location" placeholder="Where was this taken?">
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" name="caption" placeholder="Say something about this photo..."></textarea>
@@ -122,14 +162,38 @@ if (!isCookieSet()){
                     <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th data-field="state" data-checkbox="true" >Photo ID</th>
                             <th data-field="photoTitle" data-sortable="true">File Name</th>
                             <th data-field="photoCaption"  data-sortable="true">Caption</th>
                             <th data-field="cameraName" data-sortable="true">Camera Model</th>
                             <th data-field="date" data-sortable="true">Date of Capture</th>
                             <th data-field="location" data-sortable="true">Location</th>
+                            <th data-field="photographer" data-sortable="true">Photographer</th>
+                            <th data-field="album" data-sortable="true">Album</th>
+                            <th data-field="thumb" data-sortable="true">Thumbnail</th>
+                            <th data-field="action" data-sortable="true">Action</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        <?php
+                        if(get_all_photos()!=null) {
+                            foreach (get_all_photos() as $row ){
+                                ?>
+                                <tr>
+                                    <td><?php echo $row['1']?></td>
+                                    <td><?php echo $row['2']?></td>
+                                    <td><?php echo $row['3']?></td>
+                                    <td><?php if($row['4']=='0000-00-00'){$row['4']='';} echo $row['4']?></td>
+                                    <td><?php echo $row['5']?></td>
+                                    <td><?php foreach (getPhotographerNameByID($row['6']) as $row1){echo $row1[0];}?></td>
+                                    <td><?php foreach (getAlbumNameByID($row['7']) as $row2){echo $row2[0];}?></td>
+                                    <td><img height="60" width="80" src="../img/portfolio/<?php echo $row['8'] ?>"></td>
+                                    <td><a class="btn btn-danger" href="?delete=<?php echo $row['8'] ?>">Delete</a></td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                        </tbody>
                     </table>
                 </div>
             </div>

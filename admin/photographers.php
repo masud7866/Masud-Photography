@@ -6,6 +6,10 @@ if (!isCookieSet()){
 if (isset($_POST['photographerName'])&&isset($_POST['photographerDoB'])&&isset($_POST['photographerGender'])){
     $result = add_photographer($_POST['photographerName'],$_POST['photographerDoB'],$_POST['photographerGender']);
 }
+if (isset($_GET['delete'])){
+    $dResult = delete_photographer($_GET['delete']);
+    header('location: photographers.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -81,6 +85,20 @@ if (isset($_POST['photographerName'])&&isset($_POST['photographerDoB'])&&isset($
             <div class="panel panel-default">
                 <div class="panel-heading">Add new photographer</div>
                 <div class="panel-body">
+                    <?php
+                    if (isset($result)) {
+                        if ($result == true) {
+
+                            ?>
+                            <div class="text-success"> Photographer added successfully!</div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="text-danger"> Add photographer failed!</div>
+                            <?php
+                        }
+                    }
+                    ?>
                     <form action="" method="post">
                         <div class="form-group">
                             <label class="control-label">Name</label>
@@ -105,20 +123,6 @@ if (isset($_POST['photographerName'])&&isset($_POST['photographerDoB'])&&isset($
                             <button type="submit" class="btn btn-default">Add Photographer</button>
                         </div>
                     </form>
-                    <?php
-                    if (isset($result)) {
-                        if ($result == true) {
-
-                            ?>
-                            <div class="text-success"> Photographer added successfully!</div>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="text-danger"> Add photographer failed!</div>
-                            <?php
-                        }
-                    }
-                    ?>
                 </div>
             </div>
         </div>
@@ -136,6 +140,7 @@ if (isset($_POST['photographerName'])&&isset($_POST['photographerDoB'])&&isset($
                             <th data-field="gender" data-sortable="true">Gender</th>
                             <th data-field="age"  data-sortable="true">Age</th>
                             <th data-field="photoCountByPhotographer" data-sortable="true">Number of Photos</th>
+                            <th data-field="actionButton">Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -147,6 +152,8 @@ if (isset($_POST['photographerName'])&&isset($_POST['photographerDoB'])&&isset($
                                     <td><?php echo $row['1']?></td>
                                     <td><?php if ($row['3']==1){echo "Male";}else{echo "Female";}?></td>
                                     <td><?php echo date_diff(date_create($row['2']),date_create(date("Y-m-d")))->format("%y");?></td>
+                                    <td><?php foreach (countPhotosByPhotographer($row['0']) as $row1){echo $row1['0'];} ?></td>
+                                    <td><a class="btn btn-danger" href="?delete=<?php echo $row['0'] ?>">Delete</a></td>
                                 </tr>
                                 <?php
                             }

@@ -6,7 +6,10 @@ if (!isCookieSet()){
 if (isset($_POST['albumName'])&&isset($_POST['albumGenre'])){
     $result = add_album($_POST['albumName'],$_POST['albumGenre']);
 }
-?>
+if (isset($_GET['delete'])){
+    $dResult = delete_album($_GET['delete']);
+    header('location: albums.php');
+}?>
 <!DOCTYPE html>
 <html>
 
@@ -82,17 +85,6 @@ if (isset($_POST['albumName'])&&isset($_POST['albumGenre'])){
                     <div class="panel panel-default">
                         <div class="panel-heading">Add new album</div>
                         <div class="panel-body">
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="albumName" placeholder="Album Name...">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="albumGenre" placeholder="Genre...">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-default">Add Album</button>
-                                </div>
-                            </form>
                             <?php
                             if (isset($result)) {
                                 if ($result == true) {
@@ -106,7 +98,18 @@ if (isset($_POST['albumName'])&&isset($_POST['albumGenre'])){
                                     <?php
                                 }
                             }
-                                ?>
+                            ?>
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="albumName" placeholder="Album Name...">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="albumGenre" placeholder="Genre...">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default">Add Album</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -123,6 +126,7 @@ if (isset($_POST['albumName'])&&isset($_POST['albumGenre'])){
                                         <th data-field="albumTitle" data-sortable="true">Album Name</th>
 										<th data-field="genre" data-sortable="true">Genre</th>
 										<th data-field="photoCountByAlbum"  data-sortable="true">Number of Photos</th>
+                                        <th data-field="actionButton">Action</th>
 									</tr>
 								</thead>
                                 <tbody>
@@ -133,6 +137,8 @@ if (isset($_POST['albumName'])&&isset($_POST['albumGenre'])){
                                         <tr>
                                             <td><?php echo $row['1']?></td>
                                             <td><?php echo $row['2']?></td>
+                                            <td><?php foreach (countPhotosByAlbum($row['0']) as $row1){echo $row1['0'];} ?></td>
+                                            <td><a class="btn btn-danger" href="?delete=<?php echo $row['0'] ?>">Delete</a></td>
                                         </tr>
                                         <?php
                                     }
