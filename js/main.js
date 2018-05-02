@@ -36,10 +36,46 @@ $('#nav').affix({
                 queue: false
             }
         });
-        $('.cat a').click(function() {
-            $('.cat .active').removeClass('active');
+
+        $('.cat1 a').click(function() {
+            $('.cat1 .active').removeClass('active');
             $(this).addClass('active');
-            var selector = $(this).attr('data-filter');
+
+
+            var selector1 = $('.cat2 .active').attr('data-filter')=="*"?"":$('.cat2 .active').attr('data-filter');
+
+            var selector2 = $(this).attr('data-filter')=="*"?"":$(this).attr('data-filter');
+
+            var selector = selector1.toString() + selector2.toString();
+            if ($(this).attr('data-filter')=="*" && $('.cat2 .active').attr('data-filter')=="*")
+            {
+                selector="*";
+            }
+            $container.isotope({
+                filter: selector,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+            return false;
+        });
+
+        $('.cat2 a').click(function() {
+
+            $('.cat2 .active').removeClass('active');
+            $(this).addClass('active');
+
+            var selector1 = $('.cat1 .active').attr('data-filter')=="*"?"":$('.cat1 .active').attr('data-filter');
+
+            var selector2 = $(this).attr('data-filter')=="*"?"":$(this).attr('data-filter');
+
+            var selector = selector1.toString() + selector2.toString();
+            if ($(this).attr('data-filter')=="*" && $('.cat1 .active').attr('data-filter')=="*")
+            {
+                selector="*";
+            }
             $container.isotope({
                 filter: selector,
                 animationOptions: {

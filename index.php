@@ -1,3 +1,6 @@
+<?php
+include "admin/functions.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +46,7 @@
         <div class="intro-text">
           <h1>Masud's Photography</h1>
           <hr>
-          <p>Gallery • Photography</p>
+          <p>Photo Gallery</p>
           <a href="#about" class="btn btn-default btn-lg page-scroll">Learn More</a> </div>
       </div>
     </div>
@@ -63,7 +66,7 @@
           <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
           <li class="hidden"> <a href="#page-top"></a> </li>
           <li> <a class="page-scroll" href="#about">About</a> </li>
-          <li> <a class="page-scroll" href="#portfolio">Portfolio</a> </li>
+          <li> <a class="page-scroll" href="#portfolio">Photos</a> </li>
           <li> <a class="page-scroll" href="#contact">Contact</a> </li>
         </ul>
       </div>
@@ -81,9 +84,10 @@
       <div class="col-md-12 text-center"><img src="img/about.jpg" class="img-responsive"></div>
       <div class="col-md-8 col-md-offset-2">
         <div class="about-text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare.</p>
-          <a href="#portfolio" class="btn btn-default btn-lg page-scroll">My Portfolio</a> </div>
+          <p>I am Masudur Rahman, a student of Computer Science & Engineering, photographer by hobby. <br>I capture natural photos mostly.<br>
+          This website represents the photos taken by me and other photographers.<br>
+          My goal is to showcase the natural beauties of Bangladesh along with other beautiful scenery.</p>
+          <a href="#portfolio" class="btn btn-default btn-lg page-scroll">See Photos</a> </div>
       </div>
     </div>
   </div>
@@ -92,132 +96,83 @@
 <div id="portfolio">
   <div class="container">
     <div class="section-title text-center center">
-      <h2>Portfolio</h2>
+      <h2>Photos</h2>
       <hr>
     </div>
     <div class="categories">
-      <ul class="cat">
+      <ul class="cat1">
+          <h3 style="display: inline; font-weight: bold" >Album</h3>
         <li>
           <ol class="type">
             <li><a href="#" data-filter="*" class="active">All</a></li>
-            <li><a href="#" data-filter=".graphic">Graphic Design</a></li>
-            <li><a href="#" data-filter=".illustration">Illustration</a></li>
-            <li><a href="#" data-filter=".photography">Photography</a></li>
+              <?php
+              foreach (get_all_albums() as $row1) {
+                  ?>
+                  <li><a href="#" data-filter=".album<?php echo $row1[0]?>"><?php echo $row1[1]?></a></li>
+                  <?php
+              }
+              ?>
           </ol>
         </li>
       </ul>
+        <ul class="cat2" style="padding-top: 15px;">
+            <h3 style="display: inline; font-weight: bold" >Photographer</h3>
+            <li>
+                <ol class="type">
+                    <li><a href="#" data-filter="*" class="active">All</a></li>
+                    <?php
+                    foreach (get_all_photographers() as $row1) {
+                        ?>
+                        <li><a href="#" data-filter=".photographer<?php echo $row1[0]?>"><?php echo $row1[1]?></a></li>
+                        <?php
+                    }
+                    ?>
+                </ol>
+            </li>
+        </ul>
+
+       <!-- <ul class="cat">
+            <li>
+                <ol class="type">
+                    <li><a href="#" data-filter2="*" class="active">All</a></li>
+                    <li><a href="#" data-filter2=".masud">Masud</a></li>
+                    <li><a href="#" data-filter2=".safa">Safa</a></li>
+                </ol>
+            </li>
+        </ul> -->
       <div class="clearfix"></div>
     </div>
     <div class="row">
+        <?php
+        $get_all_photos = get_all_photos();
+        if(count($get_all_photos)<=0)
+        {
+                ?>
+
+        <h3 class="text-danger text-center">No Photos Found!</h3>
+        <?php
+        }
+        else{
+        ?>
       <div class="portfolio-items">
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/01-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
+          <?php
+          foreach ($get_all_photos as $row) {
+              ?>
+              <div class="col-sm-6 col-md-3 col-lg-3 <?php echo "album".$row[7]." photographer".$row[6]?>">
+                  <div class="portfolio-item">
+                      <div class="hover-bg"><a href="img/portfolio/<?php echo $row[8]?>" title="<?php if($row[2]==""){$row[2]="No Caption";} if($row[4]=="0000-00-00"){$row[4]="No Date Found";} if($row[5]==""){$row[5]="No Location Found";} if($row[3]==""){$row[3]="No Camera Found";} echo "Caption: ".$row[2].", Date of Capture: ".$row[4].", Location: ".$row[5].", Camera: ".$row[3];?>"
+                                               data-lightbox-gallery="gallery1">
+                              <div class="hover-text">
+                                  <h4><?php echo $row[1]?></h4>
+                              </div>
+                              <img src="img/portfolio/<?php echo $row[8]?>" class="img-responsive" alt="<?php echo $row[1]?>"> </a>
+                      </div>
+                  </div>
               </div>
-              <img src="img/portfolio/01-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 illustration">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/02-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/03-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/04-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/04-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 illustration">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/05-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 photography">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/06-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/06-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 photography">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/07-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/07-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/08-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/08-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 illustration">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/09-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 photography">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/10-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/10-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 photography">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/11-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/11-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 col-lg-3 graphic">
-          <div class="portfolio-item">
-            <div class="hover-bg"> <a href="img/portfolio/12-large.jpg" title="Project Title" data-lightbox-gallery="gallery1">
-              <div class="hover-text">
-                <h4>Project Title</h4>
-              </div>
-              <img src="img/portfolio/12-small.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
+              <?php
+          }
+          }
+        ?>
       </div>
     </div>
   </div>
@@ -229,30 +184,21 @@
       <h2>Get In Touch</h2>
       <hr>
     </div>
-    <div class="col-md-8 col-md-offset-2">
-      <form name="sentMessage" id="contactForm" novalidate>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-              <p class="help-block text-danger"></p>
-            </div>
-          </div>
+    <div class="col-md-4 col-md-offset-4">
+      <div class="row" >
+        <div style="margin: 0 auto;">
+            <ul class="contact2">
+                <li><span class="fa fa-user" title="Name"></span> <span>Masudur Rahman</span></li>
+                <li><span class="fa fa-envelope" title="E-Mail"></span><span>masud7866@gmail.com</span></li>
+                <li><span class="fa fa-phone" title="Phone"></span> <span>+8801731279192</span></li>
+            </ul>
         </div>
-        <div class="form-group">
-          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
-          <p class="help-block text-danger"></p>
-        </div>
-        <div id="success"></div>
-        <button type="submit" class="btn btn-default btn-lg">Send Message</button>
-      </form>
+      </div>
       <div class="social">
+          <div class="section-title center">
+              <h2>Social Links</h2>
+              <hr>
+          </div>
         <ul>
           <li><a href="http://fb.com/masud7866"><i class="fa fa-facebook"></i></a></li>
           <li><a href="https://twitter.com/masud7866"><i class="fa fa-twitter"></i></a></li>
@@ -279,5 +225,8 @@
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
 <script type="text/javascript" src="js/contact_me.js"></script> 
 <script type="text/javascript" src="js/main.js"></script>
+
+
+
 </body>
 </html>

@@ -6,6 +6,20 @@ body, html {
 	width: 100% !important;
 	height: 100% !important;
 }
+.contact2{
+	margin:0 auto;
+	text-align: left;
+	width: 70%;
+}
+.contact2 li{
+	list-style: none;
+	padding-bottom: 10px;
+}
+.contact2 li span{
+	padding-left: 10px;
+	font-size: 20px !important;
+}
+
 h2 {
 	margin: 0 0 20px 0;
 	color: #555;
@@ -204,7 +218,7 @@ header .intro-text {
 	padding-bottom: 30px;
 	text-align: center;
 }
-ul.cat li {
+ul.cat li,ul.cat2 li,ul.cat1 li {
 	display: inline-block;
 }
 ol.type li {
@@ -346,6 +360,10 @@ label {
 	font-family: 'Open Sans', sans-serif;
 	float: left;
 }
+.cat1,cat2{
+	display:block;
+
+}
 #contact .form-control {
 	display: block;
 	width: 100%;
@@ -422,3 +440,5 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 #footer a:hover {
 	color: #000;
 }
+
+

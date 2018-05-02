@@ -120,7 +120,7 @@ if (isset($_GET['delete'])){
 					<div class="panel panel-default">
 						<div class="panel-heading">Existing Albums</div>
 						<div class="panel-body">
-							<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+							<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 								<thead>
 									<tr>
                                         <th data-field="albumTitle" data-sortable="true">Album Name</th>
