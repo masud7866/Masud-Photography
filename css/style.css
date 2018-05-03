@@ -142,9 +142,9 @@ hr {
 }
 .btn-default {
 	text-transform: uppercase;
-	color: #555;
+	color: #000;
 	background-color: transparent;
-	border-color: #777;
+	border-color: #000;
 	padding: 14px 20px;
 	margin: 0;
 	font-size: 16px;
