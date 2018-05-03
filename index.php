@@ -145,7 +145,7 @@ include "admin/functions.php";
     <div class="row">
         <?php
         $get_all_photos = get_all_photos();
-        if(count($get_all_photos)<=0)
+        if(!$get_all_photos)
         {
                 ?>
 
@@ -160,10 +160,10 @@ include "admin/functions.php";
               ?>
               <div class="col-sm-6 col-md-3 col-lg-3 <?php echo "album".$row[7]." photographer".$row[6]?>">
                   <div class="portfolio-item">
-                      <div class="hover-bg"><a href="img/portfolio/<?php echo $row[8]?>" title="<?php if($row[2]==""){$row[2]="No Caption";} if($row[4]=="0000-00-00"){$row[4]="No Date Found";} if($row[5]==""){$row[5]="No Location Found";} if($row[3]==""){$row[3]="No Camera Found";} echo "Caption: ".$row[2].", Date of Capture: ".$row[4].", Location: ".$row[5].", Camera: ".$row[3];?>"
+                      <div class="hover-bg"><a href="img/portfolio/<?php echo $row[8]?>" title="<?php if($row[4]=="0000-00-00"){$row[4]="Unknown";} if($row[5]==""){$row[5]="Unknown";} if($row[3]==""){$row[3]="No Camera Found";} echo "Date of Capture: ".$row[4].", Location: ".$row[5].", Camera: ".$row[3];?>"
                                                data-lightbox-gallery="gallery1">
                               <div class="hover-text">
-                                  <h4><?php echo $row[1]?></h4>
+                                  <h4><?php if($row[2]==""){$row[2]="No Caption";} echo $row[2]?></h4>
                               </div>
                               <img src="img/portfolio/<?php echo $row[8]?>" class="img-responsive" alt="<?php echo $row[1]?>"> </a>
                       </div>
