@@ -296,6 +296,25 @@ function getAlbumNameByID($id){
 }
 
 
+function getAlbumGenreByID($id){
+    // Create connection
+    $conn = new mysqli(config["DB_HOSTNAME"], config["DB_USERNAME"], config["DB_PASS"], config["DB_NAME"]);
+
+    // Check connection
+    if ($conn->connect_error) {
+        return false;
+    }
+    $sql = "SELECT genre FROM album WHERE id='$id'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        return $result->fetch_all();
+    }
+    $conn->close();
+    return false;
+}
+
+
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);

@@ -79,7 +79,7 @@ if (!isCookieSet()){
 					<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 						<div class="panel panel-teal panel-widget border-right">
 							<div class="row no-padding"><em class="fa fa-xl fa-photo color-blue"></em>
-                                <div class="large"><?php foreach (count_photos() as $row){echo $row[0];} ?></div>
+                                <div class="large"><a href="photos.php"><?php foreach (count_photos() as $row){echo $row[0];} ?></a></div>
 								<div class="text-muted">Photos</div>
 							</div>
 						</div>
@@ -87,7 +87,7 @@ if (!isCookieSet()){
 					<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 						<div class="panel panel-blue panel-widget border-right">
 							<div class="row no-padding"><em class="fa fa-xl fa-book color-orange"></em>
-								<div class="large"><?php foreach (count_albums() as $row){echo $row[0];} ?></div>
+								<div class="large"><a href="albums.php"><?php foreach (count_albums() as $row){echo $row[0];} ?></a></div>
 								<div class="text-muted">Albums</div>
 							</div>
 						</div>
@@ -95,7 +95,7 @@ if (!isCookieSet()){
 					<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 						<div class="panel panel-orange panel-widget border-right">
 							<div class="row no-padding"><em class="fa fa-xl fa-camera color-teal"></em>
-								<div class="large"><?php foreach (count_photographers() as $row){echo $row[0];} ?></div>
+								<div class="large"><a href="photographers.php"><?php foreach (count_photographers() as $row){echo $row[0];} ?></a></div>
 								<div class="text-muted">Photographers</div>
 							</div>
 						</div>
