@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3ac46ae-40bb-4b87-b69f-c2b425174b13" name="Default" comment="Minor Changes">
+    <list default="true" id="b3ac46ae-40bb-4b87-b69f-c2b425174b13" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/admin/config.php" afterPath="$PROJECT_DIR$/admin/config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/admin/functions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="510">
-              <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+              <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
               <folding>
                 <marker date="1525884411630" expanded="true" signature="711:774" ph="INSERT INTO album... " />
                 <marker date="1525884411630" expanded="true" signature="2138:2328" ph="INSERT INTO photo... " />
@@ -232,7 +231,7 @@
       <workItem from="1525760563402" duration="2916000" />
       <workItem from="1525846785278" duration="1275000" />
       <workItem from="1525854199913" duration="8054000" />
-      <workItem from="1528536730354" duration="84000" />
+      <workItem from="1528536730354" duration="129000" />
     </task>
     <task id="LOCAL-00001" summary="Update">
       <created>1524849209186</created>
@@ -304,11 +303,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525356123045</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="DB name changed">
+      <created>1528536854047</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1528536854047</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86009000" />
+    <option name="totallyTimeSpent" value="86054000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -358,7 +364,8 @@
     <MESSAGE value="Design touchups &amp; album+photographer completed" />
     <MESSAGE value="Major upgrade" />
     <MESSAGE value="Minor Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor Changes" />
+    <MESSAGE value="DB name changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="DB name changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -663,7 +670,7 @@
     <entry file="file://$PROJECT_DIR$/admin/functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="30" column="21" lean-forward="true" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
           <folding>
             <marker date="1525884411630" expanded="true" signature="711:774" ph="INSERT INTO album... " />
             <marker date="1525884411630" expanded="true" signature="2138:2328" ph="INSERT INTO photo... " />
